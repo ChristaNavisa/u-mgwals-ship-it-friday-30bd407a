@@ -6,6 +6,8 @@
 
 Entry for the [Ship It Friday](https://make.fun/c/u-mgwals-ship-it-friday-30bd407a) bounty on make.fun.
 
+The entry line: `feat: Friday 4:59pm deploy, pushed the rewrite to prod untested - all tests passed (I wrote no tests)` — one commit message, zero tests, total confidence, right before the weekend.
+
 ## What it does
 
 `main.ts` writes a single line to `/output/entry.txt`: the funniest one-line

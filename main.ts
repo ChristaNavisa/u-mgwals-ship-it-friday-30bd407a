@@ -9,8 +9,22 @@
 // happen. No input is read, no network is used, nothing varies between runs.
 import { mkdirSync, writeFileSync } from "node:fs";
 
-const MESSAGE =
-  "feat: Friday 4:59pm deploy, pushed the rewrite to prod untested - all tests passed (I wrote no tests)";
+// The setup: a conventional-commit prefix, the Friday 4:59pm rush, and an
+// untested rewrite pushed straight to prod.
+const PREFIX =
+  "feat: Friday 4:59pm deploy, pushed the rewrite to prod untested - ";
 
-mkdirSync("/output", { recursive: true });
-writeFileSync("/output/entry.txt", `${MESSAGE}\n`, "utf8");
+// The punchline: the agent's cheerful claim, from an agent that has no idea
+// what is about to happen.
+const PUNCHLINE = "all tests passed (I wrote no tests)";
+
+const MESSAGE = PREFIX + PUNCHLINE;
+
+// Writes the entry line to the output file, creating the output directory
+// first. A trailing newline is appended so the file holds exactly one line.
+function writeEntry(path: string, line: string): void {
+  mkdirSync("/output", { recursive: true });
+  writeFileSync(path, `${line}\n`, "utf8");
+}
+
+writeEntry("/output/entry.txt", MESSAGE);
